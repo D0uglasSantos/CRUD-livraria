@@ -38,13 +38,13 @@ input:focus {
 .btn-save {
   background-color: transparent;
   border: 1px solid;
-  border-color: #5782ac;
-  color: #5782ac;
+  border-color: #27ae60;
+  color: #27ae60;
   transition: all 0.3s ease;
 }
 
 .btn-save:hover {
-  background-color: #5782ac;
+  background-color: #27ae60;
   color: #fff;
 }
 

@@ -1,29 +1,25 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 import { FaTrash, FaEdit } from "react-icons/fa";
-import { toast } from "react-toastify";
-import axios from "axios";
 import { DataGrid } from "@mui/x-data-grid";
 import "./style.css";
 
-const Grid = ({ users, setUsers, setOnEdit, setModalOpen }) => {
+const Grid = ({
+  users,
+  setUsers,
+  setOnEdit,
+  setModalOpen,
+  setConfirmDeleteModalOpen,
+  setUserToDelete,
+}) => {
   const handleEdit = (item) => {
     setOnEdit(item);
     setModalOpen(true);
   };
 
-  const handleDelete = async (id_cliente) => {
-    try {
-      const response = await axios.delete(
-        `http://localhost:8800/${id_cliente}`
-      );
-      setUsers((prevUsers) =>
-        prevUsers.filter((user) => user.id_cliente !== id_cliente)
-      );
-      toast.success(response.data);
-      setOnEdit(null);
-    } catch (error) {
-      toast.error(error.response?.data || "Erro ao deletar o usuário");
-    }
+  const handleDeleteClick = (item) => {
+    setUserToDelete(item);
+    setConfirmDeleteModalOpen(true);
   };
 
   const columns = [
@@ -78,7 +74,7 @@ const Grid = ({ users, setUsers, setOnEdit, setModalOpen }) => {
           </div>
           <div
             className="div-delete"
-            onClick={() => handleDelete(params.row.id_cliente)}
+            onClick={() => handleDeleteClick(params.row)}
           >
             <FaTrash className="icon-delete" aria-label="Excluir usuário" />
           </div>

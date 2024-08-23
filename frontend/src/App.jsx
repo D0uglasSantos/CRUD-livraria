@@ -15,6 +15,8 @@ function App() {
   const [users, setUsers] = useState([]);
   const [onEdit, setOnEdit] = useState(null);
   const [modalOpen, setModalOpen] = useState(false);
+  const [confirmDeleteModalOpen, setConfirmDeleteModalOpen] = useState(false);
+  const [userToDelete, setUserToDelete] = useState(null);
 
   const getUsers = async () => {
     try {
@@ -37,6 +39,24 @@ function App() {
   const handleCloseModal = () => {
     setOnEdit(null); // Limpa a edição ao fechar
     setModalOpen(false);
+  };
+
+  const handleDeleteUser = async () => {
+    try {
+      const response = await axios.delete(
+        `http://localhost:8800/${userToDelete.id_cliente}`
+      );
+      setUsers((prevUsers) =>
+        prevUsers.filter((user) => user.id_cliente !== userToDelete.id_cliente)
+      );
+      toast.success(response.data);
+      setOnEdit(null);
+    } catch (error) {
+      toast.error(error.response?.data || "Erro ao deletar o usuário");
+    } finally {
+      setConfirmDeleteModalOpen(false);
+      setUserToDelete(null);
+    }
   };
 
   return (
@@ -62,15 +82,38 @@ function App() {
           users={users}
           setUsers={setUsers}
           setModalOpen={setModalOpen}
+          setConfirmDeleteModalOpen={setConfirmDeleteModalOpen}
+          setUserToDelete={setUserToDelete}
         />
 
-        <Modal isOpen={modalOpen} onClose={() => setModalOpen(false)}>
+        <Modal isOpen={modalOpen} onClose={handleCloseModal}>
           <Form
             onEdit={onEdit}
             setOnEdit={setOnEdit}
             getUsers={getUsers}
             onClose={handleCloseModal}
           />
+        </Modal>
+
+        <Modal
+          isOpen={confirmDeleteModalOpen}
+          onClose={() => setConfirmDeleteModalOpen(false)}
+        >
+          <div className="confirmation-container">
+            <h2>Confirmar Exclusão</h2>
+            <p>Tem certeza de que deseja excluir este usuário?</p>
+            <div className="modal-buttons">
+              <button className="btn-confirm" onClick={handleDeleteUser}>
+                Confirmar
+              </button>
+              <button
+                className="btn-cancel"
+                onClick={() => setConfirmDeleteModalOpen(false)}
+              >
+                Cancelar
+              </button>
+            </div>
+          </div>
         </Modal>
       </section>
       <ToastContainer autoClose={3000} position="bottom-left" />
