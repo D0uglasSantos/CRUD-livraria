@@ -37,10 +37,14 @@ Para o desenvolvimento deste site utilizei as seguintes tecnologias:
 # Instruções
 
 Ao clonar ou baixar o repositório, digite o seguinte comando para iniciar os Containers:
-###`docker-compose up`
+<p># `docker-compose up`</p>
 
-Depois se diriga a pasta do frontend no terminal e digite o seguinte comando para iniciar o frontend:
-###`npm run dev`
+Depois se diriga a pasta api no terminal e digite o seguinte comando para baixar as dependências, e depois faça o mesmo no frontend :
+#`npm install`
+
+Depois, já na pasta do frontend rode o seguinte comando para iniciar o frontend:
+
+# `npm run dev`
 
 ## 📝 Licença
 
