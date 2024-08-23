@@ -1,0 +1,46 @@
+.div-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: 1rem;
+  height: 100%;
+}
+
+.div-buttons:focus {
+  outline: none;
+  border: none;
+}
+
+.div-edit {
+  background-color: #5782ac;
+  color: #fff;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.div-edit:hover {
+  background-color: #3d6690;
+}
+
+.div-delete {
+  background-color: #e67e22;
+  color: #fff;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.div-delete:hover {
+  background-color: #bb6417;
+}
+
+/* Fundo branco e não transparente */
+.MuiDataGrid-root {
+  background-color: white !important;
+}

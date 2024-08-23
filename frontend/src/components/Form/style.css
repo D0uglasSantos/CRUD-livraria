@@ -1,0 +1,62 @@
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  background-color: #fff;
+  border-radius: 8px;
+}
+
+input:focus {
+  outline: none;
+}
+
+.labelForm {
+  font-weight: 600;
+}
+
+.inputArea {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.input {
+  padding: 0.5rem;
+  border: 1px solid #bbb;
+  border-radius: 5px;
+}
+
+.btn-save,
+.btn-cancel {
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn-save {
+  background-color: transparent;
+  border: 1px solid;
+  border-color: #5782ac;
+  color: #5782ac;
+  transition: all 0.3s ease;
+}
+
+.btn-save:hover {
+  background-color: #5782ac;
+  color: #fff;
+}
+
+.btn-cancel {
+  background-color: transparent;
+  border: 1px solid;
+  border-color: #e67e22;
+  color: #e67e22;
+  transition: all 0.3s ease;
+}
+
+.btn-cancel:hover {
+  background-color: #e67e22;
+  color: white;
+}
