@@ -2,7 +2,7 @@
 
 ![Resultado final do projeto](/preview/preview.png)
 
-EM DESENVOLVIMENTO!!!
+# !!!AINDA EM DESENVOLVIMENTO!!!
 
 > Olá, esté é um projeto simples de CRUD de cadastro e administração de usuários de uma livraria
 
