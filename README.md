@@ -40,7 +40,7 @@ Ao clonar ou baixar o repositório, navege no terminal até a pasta "api" e digi
 ### `npm install`
 
 Depois, ainda na pasta "api" digite o seguinte comando para iniciar os Containers:
-### `docker-compose up`
+### `docker-compose up --build`
 
 Depois, navegue para a pasta frontend e baixe as dependências lá também. E ainda na pasta do frontend rode o seguinte comando para iniciar o frontend:
 
