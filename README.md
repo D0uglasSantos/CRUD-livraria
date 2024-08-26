@@ -36,13 +36,15 @@ Para o desenvolvimento deste site utilizei as seguintes tecnologias:
 
 # Instruções
 
-Ao clonar ou baixar o repositório, navege no terminal até a pasta "api" e digite o seguinte comando para baixar as dependências :
-### `npm install`
+Ao clonar ou baixar o repositório, na pasta raiz do projeto, digite o seguinte comando para iniciar os Containers:
 
-Depois, ainda na pasta "api" digite o seguinte comando para iniciar os Containers:
 ### `docker-compose up --build`
 
-Depois, navegue para a pasta frontend e baixe as dependências lá também. E ainda na pasta do frontend rode o seguinte comando para iniciar o frontend:
+Depois, navegue para a pasta frontend e baixe as dependências:
+
+### `npm i`
+
+Depois, ainda na pasta frontend, inicie o frontend no localhost:
 
 ### `npm run dev`
 
