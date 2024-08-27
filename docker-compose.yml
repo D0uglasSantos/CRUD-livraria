@@ -12,7 +12,8 @@ services:
       - DB_PASSWORD=123
       - DB_NAME=bdlivraria
     depends_on:
-      - db
+      db:
+        condition: service_healthy
 
   db:
     image: mysql:5.7
@@ -25,6 +26,11 @@ services:
     volumes:
       - db_data:/var/lib/mysql
       - ./api/initdb:/docker-entrypoint-initdb.d
+    healthcheck:
+      test: [ "CMD", "mysqladmin", "ping", "-h", "localhost" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
 
 volumes:
   db_data:
