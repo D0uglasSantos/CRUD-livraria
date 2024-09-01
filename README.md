@@ -10,14 +10,13 @@
 
 Para o desenvolvimento deste site utilizei as seguintes tecnologias:
 
+- React;
 - Javascript;
 - Node;
 - Nodemon;
 - Express;
 - Mysql;
 - Docker;
-- React;
-- Vite;
 
 ## Autor
 
