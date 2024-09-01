@@ -26,9 +26,18 @@
   background: transparent;
   font-size: 1.5rem;
   cursor: pointer;
-  transition: all 0.4s ease;
 }
 
 .modal-close:hover {
-  color: brown;
+  color: rgb(118, 4, 4);
+}
+
+@media screen and (max-width: 360px) {
+  .modal-content {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    width: 70%;
+    position: relative;
+  }
 }

@@ -1,15 +1,19 @@
 import { useEffect, useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { IoMdPersonAdd } from "react-icons/io";
-import { IoLibrary } from "react-icons/io5";
 import axios from "axios";
 import "./App.css";
+
+//icons
+import { IoMdPersonAdd } from "react-icons/io";
+import { IoLibrary } from "react-icons/io5";
+import { CiSearch } from "react-icons/ci";
 
 // components
 import Form from "./components/Form";
 import Grid from "./components/Grid";
 import Modal from "./components/Modal";
+import GridMobile from "./components/GridMobile";
 
 function App() {
   const [users, setUsers] = useState([]);
@@ -17,6 +21,7 @@ function App() {
   const [modalOpen, setModalOpen] = useState(false);
   const [confirmDeleteModalOpen, setConfirmDeleteModalOpen] = useState(false);
   const [userToDelete, setUserToDelete] = useState(null);
+  const [searchTerm, setSearchTerm] = useState("");
 
   const getUsers = async () => {
     try {
@@ -30,6 +35,10 @@ function App() {
   useEffect(() => {
     getUsers();
   }, []);
+
+  const filteredUsers = users.filter((user) =>
+    user.nome.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
   const handleopenModal = () => {
     setOnEdit(null);
@@ -69,17 +78,37 @@ function App() {
               CRUD <span>Livraria</span>
             </h2>
           </div>
-          <div>Search</div>
+          <div className="div-search">
+            <div className="search-container">
+              <CiSearch className="search-icon" />
+              <input
+                type="text"
+                placeholder="Pesquisar usuários..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                className="search-input"
+              />
+            </div>
+          </div>
 
           <button onClick={handleopenModal} className="btn">
-            <IoMdPersonAdd className="icon" />
+            <IoMdPersonAdd className="icon-add" />
             <span className="text">Criar Usuário</span>
           </button>
         </div>
 
         <Grid
           setOnEdit={setOnEdit}
-          users={users}
+          users={filteredUsers}
+          setUsers={setUsers}
+          setModalOpen={setModalOpen}
+          setConfirmDeleteModalOpen={setConfirmDeleteModalOpen}
+          setUserToDelete={setUserToDelete}
+        />
+
+        <GridMobile
+          setOnEdit={setOnEdit}
+          users={filteredUsers}
           setUsers={setUsers}
           setModalOpen={setModalOpen}
           setConfirmDeleteModalOpen={setConfirmDeleteModalOpen}

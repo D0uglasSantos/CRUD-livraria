@@ -96,7 +96,7 @@ const Grid = ({
   }));
 
   return (
-    <div style={{ width: "100%" }}>
+    <div style={{ width: "100%" }} className="main-grid">
       <DataGrid
         rows={rows}
         columns={columns}

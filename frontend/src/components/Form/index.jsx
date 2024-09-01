@@ -172,10 +172,10 @@ const Form = ({ getUsers, onEdit, setOnEdit, onClose }) => {
         </div>
       ))}
       <button className="btn-save" type="submit">
-        SALVAR
+        Salvar
       </button>
       <button className="btn-cancel" type="button" onClick={handleCancel}>
-        CANCELAR
+        Cancelar
       </button>
     </form>
   );
