@@ -1,5 +1,6 @@
 # CRUD LIVRARIA
 
+![Resultado final do projeto](/preview/preview.png)
 
 > Olá, esté é um projeto simples de CRUD de cadastro e administração de usuários de uma livraria
 
