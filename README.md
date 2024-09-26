@@ -33,7 +33,7 @@ Para o desenvolvimento deste site utilizei as seguintes tecnologias:
 
 # Instruções
 
-Ao clonar ou baixar o repositório, na pasta raiz do projeto, digite o seguinte comando para iniciar os Containers:
+Ao clonar ou baixar o repositório, inicie o docker e após navege no terminal para a pasta raiz do projeto, digite o seguinte comando para iniciar os Containers:
 
 ### `docker-compose up --build`
 
